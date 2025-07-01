@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import { CreateBooking } from './api/booking/create';
 import { EditBooking } from './api/booking/edit';
 import { DeleteBooking } from './api/booking/delete';
+import { Authenticate } from './client';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -17,9 +18,9 @@ app.get('/', (_: Request, res: Response) => {
 /**
  * API ROUTES
  */
-app.post('/booking', CreateBooking);
-app.put('/booking/:id', EditBooking);
-app.delete('/booking/:id', DeleteBooking);
+app.post('/booking', Authenticate, CreateBooking);
+app.put('/booking/:id', Authenticate, EditBooking);
+app.delete('/booking/:id', Authenticate, DeleteBooking);
 
 /**
  * START SERVER

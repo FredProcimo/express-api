@@ -1,7 +1,6 @@
 name: Deploy to Cloud Run
 
 env:
-  PROJECT_ID: gpt-persona
   SERVICE_NAME: restapi
   REGION: us-central1
 
@@ -25,6 +24,24 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+
+    - name: Set GCP Environment
+      id: set_project
+      run: |
+        case "${{ github.event.inputs.environment }}" in
+          development)
+            echo "PROJECT_ID=gpt-persona" >> $GITHUB_ENV
+            ;;
+          qa)
+            echo "PROJECT_ID=gpt-persona-qa" >> $GITHUB_ENV
+            ;;
+          staging)
+            echo "PROJECT_ID=gpt-persona-staging" >> $GITHUB_ENV
+            ;;
+          production)
+            echo "PROJECT_ID=gpt-persona-prod" >> $GITHUB_ENV
+            ;;
+        esac
 
     - name: Google Auth
       uses: google-github-actions/auth@v2

@@ -32,7 +32,7 @@ npm start
    - Add `GCP_SA_KEY` with the content of your `key.json` file
 
 2. **Update Workflow**: Edit `.github/workflows/deploy.yml` and replace:
-   - `your-project-id` with your actual GCP project ID
+   - `PROJECT_ID` with your actual GCP project ID
    - `restapi` with your desired service name
    - `us-central1` with your preferred region
 
