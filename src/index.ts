@@ -9,6 +9,16 @@ const port = process.env.PORT || 3000;
 app.use(express.json());
 
 /**
+ * API OPTIONS
+ */
+app.options('*', (req, res) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.sendStatus(200);
+});
+
+/**
  * API INFO
  */
 app.get('/', (_: Request, res: Response) => { 
