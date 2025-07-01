@@ -3,20 +3,13 @@ import { CreateBooking } from './api/booking/create';
 import { EditBooking } from './api/booking/edit';
 import { DeleteBooking } from './api/booking/delete';
 import { Authenticate } from './client';
+import cors from 'cors';
 
 const app = express();
 const port = process.env.PORT || 3000;
-app.use(express.json());
 
-/**
- * API OPTIONS
- */
-app.options('*', (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.sendStatus(200);
-});
+app.use(express.json());
+app.use(cors());
 
 /**
  * API INFO
