@@ -17,7 +17,7 @@ export const DeleteBooking = async (req: Request, res: Response) => {
         await ref.update({deleted: true});
         
         // Return response
-        res.json({result: true, id: req.params.id });
+        res.json({result: true, id: ref.id});
 
     }catch(err){
         res.status(500).json({result: false, error: err.message});

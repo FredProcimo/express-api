@@ -20,10 +20,10 @@ export const EditBooking = async (req: Request, res: Response) => {
         data.updated = new Date();
 
         // Update database
-        await ref.set(data, { merge: true });
+        await ref.set(data, {merge: true});
 
         // Return response
-        res.json({result: true, data});
+        res.json({result: true, id: ref.id});
         
     }catch(err){
         res.status(500).json({result: false, error: err.message});

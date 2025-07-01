@@ -17,7 +17,7 @@ export const Authenticate = async (req: Request, res: Response, next: NextFuncti
     }
     const token = header.split('Bearer ')[1];
     if(token === "qa-app-testing") {
-        next(); 
+        next();
         return;
     }
     try {
