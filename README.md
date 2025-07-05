@@ -9,7 +9,7 @@ A TypeScript Express API with automated deployment to Google Cloud Run using Git
 npm install
 
 # Run in development mode
-npm start
+npm run emulator
 ```
 
 ## Deployment Setup

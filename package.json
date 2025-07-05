@@ -9,6 +9,7 @@
   "scripts": {
     "start": "ts-node src/index.ts",
     "build": "tsc",
+    "emulator": "node emulator.js",
     "serve": "node dist/index.js"
   },
   "devDependencies": {
